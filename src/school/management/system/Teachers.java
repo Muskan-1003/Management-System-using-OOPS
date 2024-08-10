@@ -10,6 +10,8 @@ public class Teachers {
     private String name;
     private int salary;
 
+    private  int salaryEarned;
+
     /**
      * Creates a new teacher object
      * @param id for the teacher
@@ -17,10 +19,11 @@ public class Teachers {
      * @param salary for the teacher as it will differ as per experience and other factors
      */
 
-    public Teachers(int id,String name,int salary){
+    public Teachers(int id,String name,int salary,int salaryEarned){
         this.id=id;
         this.name=name;
         this.salary=salary;
+        this.salaryEarned=salaryEarned;
     }
 
     /**
@@ -50,5 +53,21 @@ public class Teachers {
         return salary;
     }
 
+    /**
+     * set the salary
+     * @param salary
+     */
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 
+    /**
+     * remove from the total money earned by the school
+     * @param salary
+     */
+    public void receiveSalary(int salary){
+        salaryEarned+=salary;
+        School.updateTotalMoneySpent(salary);
+
+    }
 }
